@@ -31,7 +31,11 @@
 ;; 显示行号
 (global-linum-mode 1)
 
-(auto-fill-mode 1)
+(display-time-mode t)
+
+
+
+(setq org-startup-with-inline-images t)
 
 ;; 更改光标的样式（不能生效，解决方案见第二集）
 (setq-default cursor-type 'bar)
@@ -89,10 +93,47 @@
 
 ;; org-mode自动换行
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 ;; Drag-and-drop to `dired`
 (add-hook 'dired-mode-hook 'org-download-enable)
 
+(add-to-list 'default-frame-alist '(width . 110))
+
 (setq org-image-actual-width '(400))
+
+(use-package org-roam
+    :after org
+    :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+    :custom
+    (org-roam-directory (file-truename "/Users/bytedance/Library/Mobile Documents/com~apple~CloudDocs/Documents/org-roam"))
+    :config
+    (org-roam-setup)
+    :bind (("C-c n f" . org-roam-node-find)
+        ("C-c n g" . org-roam-graph)
+        ("C-c n r" . org-roam-node-random)		    
+        (:map org-mode-map
+                (("C-c n i" . org-roam-node-insert)
+                ("C-c n o" . org-id-get-create)
+                ("C-c n t" . org-roam-tag-add)
+                ("C-c n a" . org-roam-alias-add)
+                ("C-c n l" . org-roam-buffer-toggle)))))
+(org-roam-db-autosync-mode)
+
+(use-package org-roam-ui
+  :straight
+    (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+    :after org-roam
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
+  (interactive)
+  (neotree-dir "/Users/bytedance/Library/Mobile Documents/com\~apple\~CloudDocs/Documents/org-roam"))
 
 (provide 'init-org)
