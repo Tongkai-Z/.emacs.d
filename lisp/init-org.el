@@ -122,6 +122,7 @@
                 ("C-c n o" . org-id-get-create)
                 ("C-c n t" . org-roam-tag-add)
                 ("C-c n a" . org-roam-alias-add)
+                ("C-c n s" . org-roam-db-sync)
                 ("C-c n l" . org-roam-buffer-toggle)))))
 (org-roam-db-autosync-mode)
 
