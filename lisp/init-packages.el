@@ -47,11 +47,9 @@
 (package-refresh-contents)
 (package-install 'use-package))
 
-(require 'use-package)
-(setq use-package-always-ensure 't)
-
  ;; Find Executable Path on OS X
  (when (memq window-system '(mac ns))
    (exec-path-from-shell-initialize))
+
 
 (provide 'init-packages)

@@ -1,8 +1,7 @@
 ;;(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'load-path "~/.emacs.d/private/org-roam-ui")
-(load-library "org-roam-ui")
+
 
 ;; Package Management
 ;; -----------------------------------------------------------------
@@ -29,3 +28,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+
