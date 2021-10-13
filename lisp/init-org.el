@@ -102,11 +102,13 @@
 
 (setq org-image-actual-width '(400))
 
+(setq org-directory (concat (getenv "CLOUD") "/Documents/org-roam/"))
+
 (use-package org-roam
     :after org
     :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
     :custom
-    (org-roam-directory (file-truename "/Users/bytedance/Library/Mobile Documents/com~apple~CloudDocs/Documents/org-roam"))
+    (org-roam-directory (file-truename org-directory))
     :config
     (org-roam-setup)
     :bind (("C-c n f" . org-roam-node-find)
@@ -119,5 +121,9 @@
                 ("C-c n a" . org-roam-alias-add)
                 ("C-c n l" . org-roam-buffer-toggle)))))
 (org-roam-db-autosync-mode)
+
+(defun my-notes ()
+  (interactive)
+  (neotree-dir org-directory))
 
 (provide 'init-org)

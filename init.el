@@ -1,7 +1,7 @@
 ;;(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-
+(setenv "CLOUD" "/Users/bytedance/Library/Mobile Documents/com~apple~CloudDocs")
 
 ;; Package Management
 ;; -----------------------------------------------------------------
