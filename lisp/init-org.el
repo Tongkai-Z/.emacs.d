@@ -95,6 +95,9 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
+;; org-mode 关闭自动indentation
+(setq org-adapt-indentation nil)
+
 ;; Drag-and-drop to `dired`
 (add-hook 'dired-mode-hook 'org-download-enable)
 
@@ -125,5 +128,7 @@
 (defun my-notes ()
   (interactive)
   (neotree-dir org-directory))
+
+(load-library "org-roam-ui")
 
 (provide 'init-org)
