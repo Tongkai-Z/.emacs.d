@@ -107,6 +107,8 @@
 
 (setq org-directory (concat (getenv "CLOUD") "/Documents/org-roam/"))
 
+(setq org-agenda-files (list (concat org-directory "ds")))
+
 (use-package org-roam
     :after org
     :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
@@ -131,5 +133,11 @@
   (neotree-dir org-directory))
 
 (load-library "org-roam-ui")
+
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "MediumPurple1")))
+
+(add-to-list 'org-emphasis-alist
+             '("~" (:background "gray45")))
 
 (provide 'init-org)

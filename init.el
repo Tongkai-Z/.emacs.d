@@ -22,7 +22,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(websocket org-roam company)))
+ '(org-agenda-files
+   '("~/Library/Mobile Documents/com~apple~CloudDocs/Documents/org-roam/ds/raft.org" "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/org-roam/algs/Sorting.org"))
+ '(package-selected-packages '(go-mode websocket org-roam company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
